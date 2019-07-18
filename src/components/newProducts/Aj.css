@@ -1,0 +1,21 @@
+input[type="file"] {
+    display: none;
+} 
+#file{
+    padding: 10px;
+    background: rgb(5, 241, 241); 
+    display: table;
+    color: #fff;
+    width: 200px;
+    height: 10px;
+    border-radius: 2px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-top: 5px!important;
+    line-height: 30px;
+}
+#validate{
+    margin-top: 30px;
+    margin-left: 5px;
+}
