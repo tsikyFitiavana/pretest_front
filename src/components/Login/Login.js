@@ -21,8 +21,8 @@ export class Login extends React.Component {
         }
         API.login(this.state.email, this.state.password).then(function(data){
             localStorage.setItem('token', data.data.token);
-            
-            window.location = "/dashboard"
+            console.log(data.data.nom)
+            window.location = "/dashboard/" + data.data.nom
         },function(error){
             console.log(error);
             return;

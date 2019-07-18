@@ -7,6 +7,8 @@ export class Signup extends React.Component {
         super(props);
         this.state = {
             email : "",
+            nom: "",
+            prenom: "",
             password: "",
             cpassword: ""
         }
@@ -22,7 +24,9 @@ export class Signup extends React.Component {
         }
         var _send = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            nom: this.state.nom,
+            prenom: this.state.prenom,
         }
         API.signup(_send).then(function(data){
             localStorage.setItem('token', data.data.token);
@@ -40,6 +44,14 @@ export class Signup extends React.Component {
     render() {
         return(
             <div className="Login">
+                <FormGroup controlId="nom" bsSize="large">
+                <ControlLabel>Nom</ControlLabel>
+                <FormControl autoFocus type="text" value={this.state.nom} onChange={this.handleChange}/>
+                </FormGroup>
+                <FormGroup controlId="prenom" bsSize="large">
+                <ControlLabel>Prenom</ControlLabel>
+                <FormControl autoFocus type="text" value={this.state.prenom} onChange={this.handleChange}/>
+                </FormGroup>
                 <FormGroup controlId="email" bsSize="large">
                 <ControlLabel>Email</ControlLabel>
                 <FormControl autoFocus type="email" value={this.state.email} onChange={this.handleChange}/>
@@ -52,6 +64,7 @@ export class Signup extends React.Component {
                 <ControlLabel>Confirm Password</ControlLabel>
                 <FormControl value={this.state.cpassword} onChange={this.handleChange} type="password"/>
                 </FormGroup>
+                
                 <Button
                 onClick={this.send}
                 block
